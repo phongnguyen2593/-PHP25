@@ -1,7 +1,7 @@
 <?php 
 function split_name($fullName){
 	//cắt bỏ khỏng trống 2 đầu, viết hoa chữ cái đầu tiên
-	$fullName = trim(ucwords($fullName));
+	$fullName = trim(ucwords(mb_strtolower($fullName, 'UTF8')));
 	//chia các từ trong họ tên cho vào mảng
 	$arr_name = explode(" ", $fullName);
 	
@@ -19,7 +19,7 @@ function split_name($fullName){
 }
 
 
-$str = "nguyen ngoc phong";
+$str = "nguyen ngỌc phong";
 echo "Họ tên đầu vào: " . $str;
 echo "<br>---------------------<br>";
 split_name($str);

@@ -2,11 +2,11 @@
 function standardize($str){
 	$str = trim($str);
 	//Hàm ucwords: viết hoa chữ cái đầu của mỗi từ được ngăn bởi space
-	$str = ucwords(strtolower($str));
+	$str = ucwords(mb_strtolower($str, 'UTF-8'));
 	echo $str;
 
 }
-$str =  "  vU vaN thUoNg  ";
+$str =  "  vŨ văN thƯơNg  ";
 echo "Chuỗi đầu vào: " . $str;
 echo "<br>--------------------<br>";
 echo "Chuỗi được chuẩn hóa: ";
