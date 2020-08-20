@@ -1,7 +1,11 @@
 <?php 
 	session_start();
-	$id = $_GET['id'];
-	unset($_SESSION['cart']['id']);
+	foreach ($_SESSION['cart'] as $key => $value) {
+		if ($_GET['id'] == $value['id']) {
+			unset($_SESSION['cart'][$key]);
+		}
+	}
+	
 	header('Location: cart.php')
 
  ?>
