@@ -58,7 +58,7 @@ foreach ($categories as $key => $value) {
 						</td>
 						<td><?php echo $value['description'] ?></td>
 						<td>
-							<a href="" class="btn btn-primary">Detail</a>
+							<a href="category_detail.php?id= <?php echo $value['id']?>" class="btn btn-primary">Detail</a>
 							<a href="category_edit.php?id= <?php echo $value['id']?>" class="btn btn-success">Edit</a>
 							<a href="category_delete.php?id= <?php echo $value['id']?>" class="btn btn-danger">Delete</a>
 						</td>
