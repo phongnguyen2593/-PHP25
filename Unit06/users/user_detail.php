@@ -1,12 +1,13 @@
 <?php 
-include('connect.php');
+include('../helpers/connect.php');
 $id = $_GET['id'];
 // echo $id;
 $query = "SELECT * FROM users WHERE `id`=" . $id;
 // echo $query;
+$connect = connect();
 $result = $connect->query($query);
 $user = $result->fetch_assoc();
-print_r($user);
+// print_r($user);
  ?>
 
 <!DOCTYPE html>

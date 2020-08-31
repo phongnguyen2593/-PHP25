@@ -1,10 +1,10 @@
 <?php 
-include ('connect.php');
+include ('../helpers/connect.php');
 $id = $_GET['id'];
 
 $query = "SELECT * from categories where `id` = " . $id;
 // echo $query;
-
+$connect = connect();
 $result = $connect->query($query);
 $category = $result->fetch_assoc();
 // echo "<pre>";

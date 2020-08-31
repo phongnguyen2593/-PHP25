@@ -1,5 +1,5 @@
 <?php 
-include 'connect.php';
+include '../helpers/connect.php';
 
 $id = $_GET['id'];
 
@@ -7,6 +7,7 @@ $id = $_GET['id'];
 $query = "DELETE FROM categories where id =" . $id;
 echo $query;
 
+$connect = connect();
 $status = $connect->query($query);
 
 if ($status) {

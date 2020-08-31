@@ -1,9 +1,9 @@
 <?php 
-include 'connect.php';
+include '../helpers/connect.php';
 
 $query = "SELECT * FROM categories WHERE 1";
 // echo $query;
-
+$connect = connect();
 $result = $connect->query($query);
 
 $categories = array();
