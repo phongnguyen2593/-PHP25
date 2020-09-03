@@ -1,17 +1,21 @@
 <?php 
-include '../helpers/connect.php';
-$query = "SELECT * FROM users WHERE 1";
-// echo $query;
-$connect = connect();
-$result = $connect->query($query);
-$users = array();
-while ($row = $result->fetch_assoc()) {
-	$users[] = $row;
-}
+// include '../helpers/connect.php';
+// $query = "SELECT * FROM users WHERE 1";
+// // echo $query;
+// $connect = connect();
+// $result = $connect->query($query);
+// $users = array();
+// while ($row = $result->fetch_assoc()) {
+// 	$users[] = $row;
+// }
 // foreach ($users as $key => $value) {
 // 	echo "<pre>";
 // 	print_r($users);
 // }
+include '../helpers/sql.php' ;
+
+$users = select('users');
+
  ?>
  <!DOCTYPE html>
 <html>

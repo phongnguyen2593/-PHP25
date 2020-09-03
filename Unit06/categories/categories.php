@@ -1,19 +1,6 @@
 <?php 
-include '../helpers/connect.php';
-
-$query = "SELECT * FROM categories WHERE 1";
-// echo $query;
-$connect = connect();
-$result = $connect->query($query);
-
-$categories = array();
-while ($row = $result->fetch_assoc()) {
-	$categories[] = $row;
-}
-foreach ($categories as $key => $value) {
-	// echo "<pre>";
-	// print_r($categories);
-}
+include('../helpers/sql.php');
+$categories = select('categories');
 
 ?>
 <!DOCTYPE html>

@@ -1,15 +1,16 @@
 <?php 
-include ('../helpers/connect.php');
+include ('../helpers/sql.php');
 $id = $_GET['id'];
 
-$query = "SELECT * from categories where `id` = " . $id;
-// echo $query;
-$connect = connect();
-$result = $connect->query($query);
-$category = $result->fetch_assoc();
+// $query = "SELECT * from categories where `id` = " . $id;
+// // echo $query;
+// $connect = connect();
+// $result = $connect->query($query);
+// $category = $result->fetch_assoc();
 // echo "<pre>";
 // print_r($category);
 
+$category = get_data('categories', $id);
 ?>
 <!DOCTYPE html>
 <html>
