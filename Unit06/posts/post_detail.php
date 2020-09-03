@@ -4,11 +4,7 @@ $id = $_GET['id'];
 // echo $id;
 
 $post =  get_data('posts', $id);
-$query = "UPDATE `posts` SET `view_count` = " . ($post['view_count']+1) . " WHERE `posts`.`id` = $id";
-// echo $query;
-include_once('../helpers/connect.php');
-$conn = connect();
-$status = $conn->query($query);
+
 
  ?>
 

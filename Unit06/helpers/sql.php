@@ -93,16 +93,4 @@ function delete($table, $id){
 		echo "FALSE";
 	}
 }
-
-//update view count
-function view_count($count, $id){
-	$query = "UPDATE `post` SET `view_count` = " . $count . " WHERE `posts`.`id` = $id";
-	$conn = connect();
-	$status = $conn->query($query);
-	if ($status) {
-		header("Location: $table.php");
-	}else {
-		echo "FALSE";
-	}
-}
 ?>
