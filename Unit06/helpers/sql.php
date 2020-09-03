@@ -82,8 +82,21 @@ function get_data($table, $id){
 	return $data;
 }
 
+//delete
 function delete($table, $id){
 	$query = "DELETE FROM $table WHERE `id` = $id";
+	$conn = connect();
+	$status = $conn->query($query);
+	if ($status) {
+		header("Location: $table.php");
+	}else {
+		echo "FALSE";
+	}
+}
+
+//update view count
+function view_count($count, $id){
+	$query = "UPDATE `post` SET `view_count` = " . $count . " WHERE `posts`.`id` = $id";
 	$conn = connect();
 	$status = $conn->query($query);
 	if ($status) {

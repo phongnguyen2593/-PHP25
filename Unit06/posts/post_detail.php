@@ -2,7 +2,14 @@
 include('../helpers/sql.php');
 $id = $_GET['id'];
 // echo $id;
+
 $post =  get_data('posts', $id);
+$query = "UPDATE `posts` SET `view_count` = " . ($post['view_count']+1) . " WHERE `posts`.`id` = $id";
+// echo $query;
+include_once('../helpers/connect.php');
+$conn = connect();
+$status = $conn->query($query);
+
  ?>
 
 <!DOCTYPE html>
@@ -37,6 +44,7 @@ $post =  get_data('posts', $id);
 		<img src="<?php echo $post['thumbnail'];?>">
 		<br>
 		<p><b>Content:</b> <?php echo $post['content']; ?></p>
+		<p><b>View count: </b> <?php echo $post['view_count']; ?></p>
 		<br>
 		<a href="posts.php" class="btn btn-success">Back to Posts list</a>
 	</div>
