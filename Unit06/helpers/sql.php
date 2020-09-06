@@ -4,8 +4,14 @@ include_once 'connect.php';
 function select($table){
 	$query = "SELECT * FROM $table";
 // echo $query;
-	$connect = connect();
+	// $connect = connect();
 	
+	$conn = new connection();
+
+	$conn->connect();
+
+	$connect = $conn->connect();
+
 	$result = $connect->query($query);
 	
 	$data = array();
