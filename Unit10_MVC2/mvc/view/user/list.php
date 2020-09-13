@@ -1,5 +1,5 @@
 
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -21,29 +21,29 @@
 </head>
 <body>
 	<div class="container">
-		<h3 class="text-center">--- CATEGORIES ---</h3>
-		<a href="?mod=category&act=create" class="btn btn-primary">Add New Category</a>
+		<h3 class="text-center">--- USERS ---</h3>
+		<a href="?mod=user&act=create" class="btn btn-primary">Add New User</a>
 		<table class="table">
-			<thead>	
+			<thead>
 				<th>ID</th>
 				<th>Name</th>
-				<th>Thumbnail</th>
-				<th>Description</th>
+				<th>Email</th>
+				<th>Avatar</th>
 				<th>Action</th>
 			</thead>
 			<tbody>
-				<?php foreach ($categories as $key => $value) { ?>
+				<?php foreach ($users as $key => $value) { ?>
 					<tr>
 						<td><?php echo $value['id'] ?></td>
 						<td><?php echo $value['name'] ?></td>
+						<td><?php echo $value['email'] ?></td>
 						<td>
-							<img src="<?php echo $value['thumbnail']; ?>" alt="">
+							<img src="<?php echo $value['avatar']; ?>" alt="">
 						</td>
-						<td><?php echo $value['description'] ?></td>
 						<td>
-							<a href="?mod=category&act=detail&id=<?php echo $value['id']?>" class="btn btn-primary">Detail</a>
-							<a href="?mod=category&act=edit&id=<?php echo $value['id']?>" class="btn btn-success">Edit</a>
-							<a href="?mod=category&act=destroy&id=<?php echo $value['id'] ?>" class="btn btn-danger">Delete</a>
+							<a href="?mod=user&act=detail&id=<?php echo $value['id'];?>" class="btn btn-primary">Detail</a>
+							<a href="?mod=user&act=edit&id= <?php echo $value['id']?>" class="btn btn-success">Edit</a>
+							<a href="?mod=user&act=destroy&id= <?php echo $value['id']?>" class="btn btn-danger">Delete</a>
 						</td>
 					</tr>
 				<?php } ?>

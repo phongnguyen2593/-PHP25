@@ -19,6 +19,15 @@ class Category extends Model
 	public function deleteCategory($id){
 		return $this->delete($this->table, $id);
 	}
+
+	public function getData($id){
+		return $this->get_data($this->table, $id);
+	}
+
+	public function editData($data, $id){
+		return $this->update($this->table, $data, $id);
+	}
+
 } 
 
  ?>

@@ -1,8 +1,8 @@
 <?php 
-
+// define('URL', 'http://php25.com/mvc/public');
 $mod = $_GET['mod'];
 $act = $_GET['act'];
-$params = isset($_GET['id']) ? [$_GET['id']] : [];
+$params =isset($_GET['id']) ? [$_GET['id']] : [];
 // include_once('controller/CategoryController.php');
 // include_once('controller/PostController.php');
 

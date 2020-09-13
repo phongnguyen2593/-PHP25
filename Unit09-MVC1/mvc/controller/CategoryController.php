@@ -20,10 +20,30 @@ class CategoryController
 		$category = $model->addNew($data);
 		header('Location: ?mod=category&act=list');
 	}
+	
 	public function destroy($id){
 		$model = new Category();
 		$model->deleteCategory($id);
 		header('Location: ?mod=category&act=list');
+	}
+
+	//Hàm trả về dữ liệu + view
+	public function edit($id){
+		$model = new Category();
+		$category = $model->getData($id);
+		require_once('view/category/edit.php');
+	}
+
+	public function update($data, $id){
+		$model = new Category();
+		$category = $model->editData($id, $data);
+		header('Location: ?mod=category&act=list');
+	}
+
+	public function detail($id){
+		$model = new Category();
+		$category = $model->getData($id);
+		require_once('view/category/detail.php');
 	}
 }
 

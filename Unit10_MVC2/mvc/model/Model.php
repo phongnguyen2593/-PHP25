@@ -1,10 +1,15 @@
 <?php 
 
-include 'connect.php';
+include 'Connection.php';
+/**
+ * 
+ */
 
-class Model 
+
+class Model
 {
-	var $conn;
+	private $conn;
+	protected $table;
 
 	function __construct(){
 		$connect = new Connection();
@@ -12,12 +17,12 @@ class Model
 		$this->conn = $connect->connect();
 	}
 
-	function select($table){
-		$query = "SELECT * FROM $table";
-		$conn = $this->conn;
+	function select(){
+		$query = "SELECT * FROM $this->table";
 
-		$result = $conn->query($query);
 
+		$result = $this->conn->query($query);
+		
 		$data = array();
 		while ($row = $result->fetch_assoc()) {
 			$data[] = $row;
@@ -26,9 +31,9 @@ class Model
 		return $data;
 	}
 
-	function insert($table, $data)
+	function insert($data)
 	{
-		$query = "INSERT INTO $table (";
+		$query = "INSERT INTO $this->table (";
 		$string1 = '';
 		$string2 = '';
 		$count = 0;
@@ -47,15 +52,14 @@ class Model
 		}
 
 		$query .= $string1 . ")"." VALUES (".$string2.")";
-		$conn = $this->conn;
-		$status = $conn->query($query);
+		$status = $this->conn->query($query);
 		return $status;
 	}
 
 //edit process
-	function update($table, $data)
+	function edit($data, $id)
 	{
-		$query = "UPDATE $table SET";
+		$query = "UPDATE $this->table SET";
 
 		$string1 = '';
 		$string2 = ',';
@@ -68,32 +72,26 @@ class Model
 				$string1 .= $string2;
 			}
 		}
-		$query .= $string1 . " WHERE `id` = " . $data['id'];
+		$query .= $string1 . " WHERE `id` = " . $id;
 		$conn = $this->conn;
 		$status = $conn->query($query);
-		if ($status) {
-			header("Location: $table.php");
-		}else {
-			echo "FALSE";
-		}
+		return $status;
 	}
 
 //get data
-	function get_data($table, $id)
+	function get_data($id)
 	{
-		$query = "SELECT * FROM $table WHERE `id` = $id";
-		$conn = $this->conn;
-		$result = $conn->query($query);
+		$query = "SELECT * FROM $this->table WHERE `id` = $id";
+		$result = $this->conn->query($query);
 		$data = $result->fetch_assoc();
 		return $data;
 	}
 
 //delete
-	function delete($table, $id)
+	function delete($id)
 	{
-		$query = "DELETE FROM $table WHERE `$table`.`id` = $id";
-		$conn = $this->conn;
-		$status = $conn->query($query);
+		$query = "DELETE FROM $this->table WHERE `$this->table`.`id` = $id";
+		$status = $this->conn->query($query);
 		return $status;
 	}
 }
