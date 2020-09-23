@@ -26,7 +26,7 @@ function select($table){
 //add process
 function insert($table, $data){
 
-	$query = "INSERT INTO $table (";
+	$query = "INSERT INTO $table ";
 	$string1 = '';
 	$string2 = '';
 	$count = 0;
@@ -44,7 +44,9 @@ function insert($table, $data){
 		}
 	}
 
-	$query .= $string1 . ")"." VALUES (".$string2.")";
+	$query .= "($string1, `created_at`  ) VALUES ($string2,'" . date("y-m-d h:i:s") ."')";
+	echo $query;
+	die();
 	
 	$connect = connect();
 	$status = $connect->query($query);

@@ -18,14 +18,14 @@
 // 	return $connect;
 // }
 class connection {
-	var $serverName;
-	var $userName;
+	var $servername;
+	var $username;
 	var $password;
-	var $database;
+	var $database_name;
 
 	function connect(){
-		$serverName = "localhost";
-		$userName = "root";
+		$servername = "localhost";
+		$username = "root";
 		$password = "";
 		$database_name = "my_blog";
 

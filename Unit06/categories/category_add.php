@@ -35,10 +35,7 @@
                 <label for="">Description</label>
                 <input type="text" class="form-control" id="" placeholder="" name="description">
             </div>
-            <div class="form-group">
-                <label for="">Date</label>
-                <input type="date" class="form-control" id="" placeholder="" name="created_at">
-            </div>
+            
             <button type="submit" class="btn btn-primary">Create</button>
         </form>
     </div>
